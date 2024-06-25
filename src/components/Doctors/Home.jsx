@@ -1,9 +1,19 @@
-import React from 'react';
+import React from "react";
+import Sidebar from "./Sidebar";
+import { Outlet } from "react-router-dom";
+import Footer from "../Footer";
 
-const DoctorHomePage = () => (
-    <div className="flex justify-center items-center h-screen">
-        <h1 className="text-4xl font-bold text-center text-gray-800">Coming Soon</h1>
+const DoctorHomePage = () => {
+  return (
+    <div className="flex   min-h-full bg-[#0f0f3e] w-full">
+     
+      <Sidebar />
+      <div className="flex-grow p-6 ">
+        <Outlet />
+    
+      </div>
     </div>
-);
+  );
+};
 
 export default DoctorHomePage;

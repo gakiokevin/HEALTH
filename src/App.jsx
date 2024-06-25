@@ -16,6 +16,12 @@ import NewAppointment from "./components/Users/NewAppointment";
 import NewEvent from "./components/Users/NewEvent";
 import LoginForm from "./components/LoginForm";
 import DoctorHomePage from "./components/Doctors/Home";
+import ScheduledAppointments from "./components/Doctors/ScheduledRequests";
+import CreateReportForm from "./components/Doctors/CreateReport";
+import BasicDataForm from "./components/Doctors/BasicData";
+import QueryDataForm from "./components/Doctors/QueryData";
+import UserProfile from "./components/Doctors/UserProfile";
+import Requests from "./components/Doctors/Requests";
 
 
 function App() {
@@ -32,7 +38,14 @@ function App() {
           <Route path="/patient/messages" element={<UserMessages />} />
           <Route path="/patient/reminders" element={<UserReminders />} />
         </Route>
-        <Route path="/doctor" element={<DoctorHomePage/>}/>
+        <Route path="/doctor" element={<DoctorHomePage/>}>
+        <Route path="" element={<Requests/>}/>
+        <Route path="scheduled-requests" element={<ScheduledAppointments/>}/>
+        <Route path="create-report" element={<CreateReportForm/>}/>
+        <Route path="basic-data" element={<BasicDataForm/>}/>
+        <Route path="query-data" element={<QueryDataForm/>}/>
+        <Route path="profile" element={<UserProfile/>}/>
+        </Route>
         <Route path="/new-appointment" element={<NewAppointment />} />
         <Route path="/create-event" element={<NewEvent />} />
       </Routes>

@@ -1,3 +1,4 @@
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -10,8 +11,10 @@ export default {
         'blue': '#0693e3',
         'green':'#00c476',
         'red':'#ef4444',
-        'lightGreen':'#22c55e'
+        'lightGreen':'#22c55e',
+
       },
+      
     },
     
   },
