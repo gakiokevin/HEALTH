@@ -3,64 +3,15 @@ import { useState } from "react";
 
 import Header from "../Header";
 import Footer from "../Footer";
+import Sidebar from "../Doctors/Sidebar";
 
 const UserHome = () => {
-  const [isMenuVisible, setMenuStatus] = useState(false);
-
-
-
-  const hideMenu = () => {
-    setMenuStatus(false);
-  };
-
+  
   return (
     <div className="bg-[#0f0f3e] w-[vw]">
-    <Header>
-      <>
-      <li className="p-8 md:p-1 md:pl-4">
-      {" "}
-      <Link to="/patient" onClick={hideMenu}>
-        Home
-      </Link>
-    </li>
-    <li className=" p-8 md:p-1 md:pl-4">
-      {" "}
-      <Link to="user-info" onClick={hideMenu}>
-        Data
-      </Link>
-    </li>
-    <li className="p-8 md:p-1 md:pl-4">
-      {" "}
-      <Link to="appointments" onClick={hideMenu}>
-        Appointments
-      </Link>
-    </li>
-    <li className="p-8 md:p-1 md:pl-4">
-      {" "}
-      <Link to="messages" onClick={hideMenu}>
-        Message
-      </Link>
-    </li>
-    <li className="p-8 md:p-1 md:pl-4">
-      {" "}
-      <Link to="events" onClick={hideMenu}>
-        Events
-      </Link>
-    </li>
-    <li className="p-8 md:p-1 md:pl-4">
-      {" "}
-      <Link to="reminders" onClick={hideMenu}>
-        Reminders
-      </Link>
-    </li>
-    <li className="p-8 md:p-1 md:pl-4 md:hidden">
-      {" "}
-      <Link to="/" onClick={hideMenu}>
-        logout
-      </Link>
-    </li></>
-    </Header>
-      <div className="w-full bg-[#0f0f3e] mt-20 flex  pt-10 text-white  justify-center min-h-screen border-b-2 border-b-white pb-4">
+    <Header/>
+    <Sidebar/>
+      <div className="w-full bg-[#0f0f3e]  flex  pt-10 text-white  justify-center min-h-screen border-b-2 border-b-white pb-4">
         <Outlet />
       </div>
       <Footer/>

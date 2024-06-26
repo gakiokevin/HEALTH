@@ -1,5 +1,5 @@
 import { faFacebook, faGithub, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
-import { faBarsStaggered, faCalendarAlt, faCalendarCheck, faChartBar, faDatabase, faPaperPlane, faPen, faSearch, faTasks, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faBarsStaggered, faCalendarAlt, faCalendarCheck, faChartBar, faDatabase, faHome, faPaperPlane, faPen, faSearch, faTasks, faTimes, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const icons = {
@@ -18,5 +18,7 @@ const icons = {
    chart:<FontAwesomeIcon icon={faChartBar}/>,
    db:<FontAwesomeIcon icon={faDatabase}/>,
    search:<FontAwesomeIcon icon={faSearch}/>,
+   close:<FontAwesomeIcon icon={faTimes}/>,
+   home:<FontAwesomeIcon icon={faHome}/>,
 }
 export default icons

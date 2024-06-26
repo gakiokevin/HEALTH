@@ -30,7 +30,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<LoginForm />} />
-        <Route path="/patient" element={<UserHome />}>
+        <Route path="/patient/" element={<UserHome />}>
           <Route index element={<UserDashboard />} />
           <Route path="/patient/user-info" element={<UserData />} />
           <Route path="/patient/appointments" element={<UserAppointments />} />
@@ -38,8 +38,8 @@ function App() {
           <Route path="/patient/messages" element={<UserMessages />} />
           <Route path="/patient/reminders" element={<UserReminders />} />
         </Route>
-        <Route path="/doctor" element={<DoctorHomePage/>}>
-        <Route path="" element={<Requests/>}/>
+        <Route path="/doctor/" element={<DoctorHomePage/>}>
+        <Route index element={<Requests/>}/>
         <Route path="scheduled-requests" element={<ScheduledAppointments/>}/>
         <Route path="create-report" element={<CreateReportForm/>}/>
         <Route path="basic-data" element={<BasicDataForm/>}/>

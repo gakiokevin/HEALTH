@@ -3,25 +3,21 @@ import bg from "../images/bio.jpg";
 // import icons from "../../utils/icons";
 import Footer from "./Footer";
 import Header from "./Header";
+import Sidebar from "./Doctors/Sidebar";
 import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
     <div className="">
+      <Header />
+     
       <div
         className="relative flex flex-col min-h-screen  bg-cover bg-center"
         style={{ backgroundImage: `url(${bg})` }}
       >
-        <Header>
-          <>
-            <li className="pl-4">Home</li>
-            <li className="pl-4">About</li>
-            <li className="pl-4">Services</li>
-            <li className="pl-4"><Link to="/login">Sign In</Link></li>
-          </>
-        </Header>
-        <div className=" absolute inset-0  bg-black opacity-50 min-h-full "></div>
-        <div className="z-40 flex flex-col pt-20">
+         <div className="z-50"><Sidebar/></div>
+          <div className=" absolute inset-0  bg-black opacity-50 min-h-full "></div>
+        <div className="z-30 flex flex-col pt-20">
           <div className="flex flex-col items-center justify-center  h-auto">
             <div className="text-white text-center flex flex-col p-4 px-2 md:w-2/5">
               <h2 className="text-4xl text-[#F2F2FEB3] flex  py-2">

@@ -1,63 +1,118 @@
-import { Link } from "react-router-dom"
-import { useState,useEffect} from "react";
+import { NavLink } from "react-router-dom";
+import { useState, useEffect } from "react";
 import icons from "../../utils/icons.jsx";
 import logo from "../images/helconlogo.png";
-import doctor from "../images/doctor.jpg";
-import {useLocation } from 'react-router-dom'
-const Header = ({children})=>{
-  const [isMenuVisible, setMenuStatus] = useState(false);
-  const location = useLocation()
+// import doctor from "../images/doctor.jpg";
+import { useLocation } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { toggleSidebar } from "../Slice/sidebarSlice.jsx";
+import { useSelector } from "react-redux";
 
- useEffect(()=>{
-console.log(location)
-setMenuStatus(false)
+const Header = () => {
 
- },[location])
+  const dispatch = useDispatch()
+  const location = useLocation();
+  const isHomePage = location.pathname;
 
+const handleToggle = ()=>{
+  dispatch(toggleSidebar())
+}
 
-
-   
-
-  const toggleMenu = () => {
-    setMenuStatus(!isMenuVisible);
-  };
-
+const sidebar = useSelector((state)=>state.sidebar.isSidebarOpen)
   
 
-return(
+  useEffect(()=>{
+    console.log(sidebar)
+  },[sidebar])
 
-   <>
-  <div className=" w-full bg-primary flex justify-between px-3 items-center h-20  fixed top-0 left-0 z-50">
-        <div className="h-full p-2 text-3xl">
-          <img src={logo} alt="logo" className="h-full" />
-        </div>
-
-        <div className="flex justify-center">
-          <ul
-            className={` md:mr-8 text-white fixed top-0 left-0 h-screen bg-gray-800 z-50 ${
-              isMenuVisible ? "w-64" : "w-0"
-            } transition-width duration-300 ease-in-out overflow-hidden md:relative md:flex md:flex-row md:items-center md:justify-start md:pt-0 md:bg-transparent md:z-auto md:w-auto md:space-x-4 ${
-              isMenuVisible ? "w-0" : "hidden"
-            } md:transition-none`}
-          >
-           {children}
-            {location.pathname !== '/' && (
-              <div className="h-8 w-8 rounded-full bg-[grey] hidden md:block">
-              <img
-                src={doctor}
-                alt="a doctor"
-                className="max-w-full h-full w-full object-cover rounded-full"
-              />
-            </div>
-            )}
-          </ul>
-          <div className="p-2 md:hidden" onClick={toggleMenu}>
-            <p className="text-3xl text-white">{icons.menu}</p>
-          </div>
-        </div>
+  return (
+    <div
+      className={`flex items-center justify-between p-4 bg-gray-900 text-white ${
+        location.pathname.includes("/doctor") ? "md:hidden" : ""
+      }`}
+    >
+      <div className="h-16 p-2  text-3xl relative">
+        <img
+          src={logo}
+          alt="logo"
+          className="h-[220px] w-auto -mt-20 pt-4 md:-ml-4 -ml-10"
+        />
       </div>
-   </>
-)
 
-}
-export default Header
+      <div className="hidden md:flex space-x-6 mr-8">
+        {isHomePage === "/" && (
+          <>
+            <NavLink
+              to="/"
+              className={({ isActive }) => (isActive ? "text-blue-500" : "")}
+            >
+              Home
+            </NavLink>
+            <NavLink
+              to=""
+              className={({ isActive }) => (isActive ? "text-blue-500" : "")}
+            >
+              About
+            </NavLink>
+            <NavLink
+              to=""
+              className={({ isActive }) => (isActive ? "text-blue-500" : "")}
+            >
+              Services
+            </NavLink>
+            <NavLink
+              to="/login"
+              className={({ isActive }) => (isActive ? "text-blue-500" : "")}
+            >
+              Sign In
+            </NavLink>
+          </>
+        )}
+        {isHomePage.startsWith("/p") && (
+          <>
+            <NavLink
+              to=""
+              className={({ isActive }) => (isActive ? "text-blue-500" : "")}
+            >
+              Home
+            </NavLink>
+            <NavLink
+              to="user-info"
+              className={({ isActive }) => (isActive ? "text-blue-500" : "")}
+            >
+              Data
+            </NavLink>
+            <NavLink
+              to="appointments"
+              className={({ isActive }) => (isActive ? "text-blue-500" : "")}
+            >
+              Appointments
+            </NavLink>
+            <NavLink
+              to="messages"
+              className={({ isActive }) => (isActive ? "text-blue-500" : "")}
+            >
+              Message
+            </NavLink>
+            <NavLink
+              to="events"
+              className={({ isActive }) => (isActive ? "text-blue-500" : "")}
+            >
+              Events
+            </NavLink>
+            <NavLink
+              to="reminders"
+              className={({ isActive }) => (isActive ? "text-blue-500" : "")}
+            >
+              Reminders
+            </NavLink>
+          </>
+        )}
+      </div>
+      <div className="p-2 md:hidden" onClick={handleToggle}>
+        <div className="text-3xl text-white">{icons.menu}</div>
+      </div>
+    </div>
+  );
+};
+export default Header;
