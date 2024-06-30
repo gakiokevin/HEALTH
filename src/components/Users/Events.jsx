@@ -10,8 +10,8 @@ const UserEvents = () => {
   };
 
   return (
-    <div className="py-20 w-full flex md:flex-row flex-col pl-6 justify-around">
-      <ul className="flex md:flex-col flex-row gap-y-6">
+    <div className="py-20 w-full flex md:flex-row flex-col pl-6 justify-around px-2">
+      <ul className="flex md:flex-col  flex-row gap-y-6 md:-mt-10 md:-ml-4">
         <li className="px-6 py-6 bg-primary font-bold text-md rounded-md">
           <Link to="/create-event">
             {" "}
@@ -31,12 +31,12 @@ const UserEvents = () => {
         </li>
       </ul>
 
-      <div className="flex flex-col items-start overflow-x-auto">
+      <div className="flex-1 flex flex-col items-start overflow-x-auto text-white px-2 md:-mt-20">
         <h2 className="font-bold text-2xl px-4 pb-6">
           {isEvent === "available" ? "Manage Events" : "Event Responses"}
         </h2>
 
-        <table className="table-auto min-w-full border-separate border-spacing-x-2">
+        <table className="table-auto min-w-full border-separate ">
           <thead>
             <tr className="bg-[#2D2B7C]">
               {isEvent === "available" ? (

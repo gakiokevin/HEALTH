@@ -3,31 +3,39 @@ import { useState, useEffect } from "react";
 import icons from "../../utils/icons.jsx";
 import logo from "../images/helconlogo.png";
 // import doctor from "../images/doctor.jpg";
-import { useLocation } from "react-router-dom";
+import { useLocation,useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { toggleSidebar } from "../Slice/sidebarSlice.jsx";
 import { useSelector } from "react-redux";
 
 const Header = () => {
+  const [isHovered, setIsHovered] = useState(false);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const location = useLocation();
   const isHomePage = location.pathname;
+  const navigate = useNavigate()
 
-const handleToggle = ()=>{
-  dispatch(toggleSidebar())
-}
+  const handleToggle = () => {
+    dispatch(toggleSidebar());
+  };
 
-const sidebar = useSelector((state)=>state.sidebar.isSidebarOpen)
-  
+  const sidebar = useSelector((state) => state.sidebar.isSidebarOpen);
 
-  useEffect(()=>{
-    console.log(sidebar)
-  },[sidebar])
+  useEffect(() => {
+    console.log(sidebar);
+  }, [sidebar]);
+
+
+
+
+  const handleLogout = ()=>{
+    navigate('/')
+  }
 
   return (
     <div
-      className={`flex items-center justify-between p-4 bg-gray-900 text-white ${
+      className={` flex items-center justify-between p-4 bg-gray-900 text-white ${
         location.pathname.includes("/doctor") ? "md:hidden" : ""
       }`}
     >
@@ -58,18 +66,24 @@ const sidebar = useSelector((state)=>state.sidebar.isSidebarOpen)
               to=""
               className={({ isActive }) => (isActive ? "text-blue-500" : "")}
             >
-              Services
+              Contact
             </NavLink>
             <NavLink
               to="/login"
               className={({ isActive }) => (isActive ? "text-blue-500" : "")}
             >
-              Sign In
+              Login
+            </NavLink>
+            <NavLink
+              to="/signup"
+              className={({ isActive }) => (isActive ? "text-blue-500" : "")}
+            >
+              Register
             </NavLink>
           </>
         )}
         {isHomePage.startsWith("/p") && (
-          <>
+          <div className="  space-x-4 flex items-center pl-6">
             <NavLink
               to=""
               className={({ isActive }) => (isActive ? "text-blue-500" : "")}
@@ -106,7 +120,25 @@ const sidebar = useSelector((state)=>state.sidebar.isSidebarOpen)
             >
               Reminders
             </NavLink>
-          </>
+            <div
+              className="relative flex justify-end pl-2"
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            >
+              <p className="text-2xl">{icons.user}</p>
+              {isHovered && (
+                <div className="absolute top-10 right-0 bg-white border border-gray-300 rounded shadow-lg p-2">
+                  <button className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left">
+                    Profile
+                  </button >
+                  <button className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left"
+                  onClick={handleLogout}>
+                    Logout
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
         )}
       </div>
       <div className="p-2 md:hidden" onClick={handleToggle}>

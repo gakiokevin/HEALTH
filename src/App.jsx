@@ -2,7 +2,6 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Navigate,
 } from "react-router-dom";
 import Home from "./components/HomePage";
 import UserHome from "./components/Users/Home";
@@ -22,6 +21,8 @@ import BasicDataForm from "./components/Doctors/BasicData";
 import QueryDataForm from "./components/Doctors/QueryData";
 import UserProfile from "./components/Doctors/UserProfile";
 import Requests from "./components/Doctors/Requests";
+import myProfile from "./components/Users/UserProfile";
+import Register from "./components/Register";
 
 
 function App() {
@@ -30,6 +31,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<LoginForm />} />
+        <Route path="/signup" element={<Register />} />
+
         <Route path="/patient/" element={<UserHome />}>
           <Route index element={<UserDashboard />} />
           <Route path="/patient/user-info" element={<UserData />} />
@@ -37,6 +40,7 @@ function App() {
           <Route path="/patient/events" element={<UserEvents />} />
           <Route path="/patient/messages" element={<UserMessages />} />
           <Route path="/patient/reminders" element={<UserReminders />} />
+          <Route path="/patient/profile" element={<myProfile/>}/>
         </Route>
         <Route path="/doctor/" element={<DoctorHomePage/>}>
         <Route index element={<Requests/>}/>

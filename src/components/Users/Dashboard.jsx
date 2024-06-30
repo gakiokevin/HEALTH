@@ -11,9 +11,9 @@ const UserDashboard = ()=>{
         <p className="py-2">@Kevin Macharia</p>
         <div className=" py-1 flex justify-between">
           {" "}
-          <span className="">id:{""} 2345o6</span>
+          <span className="text-blue-500">id:{""} 2345o6</span>
           <span className="px-2 bg-primary mx-2 rounded-lg text-center">Therapist</span>
-          <span className="">100Km away</span>
+          <span className="text-blue-500">100Km away</span>
         </div>
       </div>
       <div className=" flex flex-col px-30">

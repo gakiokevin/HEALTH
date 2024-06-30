@@ -18,7 +18,7 @@ const UserAppointments = () => {
         </li>
       </ul>
 
-      <div className="flex flex-col items-start  overflow-x-auto">
+      <div className="flex-1 flex flex-col items-start  overflow-x-auto text-white">
         <h2 className="font-bold text-2xl px-4 pb-6">Manage Appointments</h2>
         <table className="table-auto min-w-full  border-separate border-spacing-x-2">
           <thead>
@@ -35,32 +35,44 @@ const UserAppointments = () => {
               <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider mx-2">
                 Status
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider mx-2">
-                Edit
-              </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider mx-4">
-                Delete
+              <th className="px-6 py-3 text-center text-xs font-medium text-white uppercase tracking-wider mx-2">
+                Actions
               </th>
             </tr>
           </thead>
           <tbody className="bg-[#0F0F3E]">
             <tr className="">
-              <td className="px-6 py-4 whitespace-nowrap border-b">03/11/2023</td>
-              <td className="px-6 py-4 whitespace-nowrap border-b">john_alma</td>
+              <td className="px-6 py-4 whitespace-nowrap border-b">
+                03/11/2023
+              </td>
+              <td className="px-6 py-4 whitespace-nowrap border-b">
+                john_alma
+              </td>
               <td className="px-6 py-4 whitespace-nowrap border-b">Dentist</td>
               <td className="px-6 py-4 whitespace-nowrap border-b">Approved</td>
-              <td className="px-6 py-4 whitespace-nowrap border-b"><button className="rounded-lg px-2  bg-primary">Chat</button></td>
-              <td className="px-6 py-4 whitespace-nowrap border-b"><button className="rounded-lg bg-red px-2">Delete</button></td>
+              <td className="py-4 whitespace-nowrap border-b  space-x-2 flex justify-center">
+                <button className="rounded-lg px-2  bg-primary pr-2 mr-2">
+                  Chat
+                </button>
+                <button className="rounded-lg bg-red px-2">Delete</button>
+              </td>
             </tr>
             <tr>
-            <td className="px-6 py-4 whitespace-nowrap border-b">03/11/2023</td>
-              <td className="px-6 py-4 whitespace-nowrap border-b">john_alma</td>
+              <td className="px-6 py-4 whitespace-nowrap border-b">
+                03/11/2023
+              </td>
+              <td className="px-6 py-4 whitespace-nowrap border-b">
+                john_alma
+              </td>
               <td className="px-6 py-4 whitespace-nowrap border-b">Dentist</td>
               <td className="px-6 py-4 whitespace-nowrap border-b">Approved</td>
-              <td className="px-6 py-4 whitespace-nowrap border-b"><button className="rounded-lg px-2 bg-primary">Chat</button></td>
-              <td className="px-6 py-4 whitespace-nowrap border-b"><button className="rounded-lg bg-red px-2">Delete</button></td>
-               
-      
+
+              <td className="py-4 whitespace-nowrap border-b  space-x-2 flex justify-center">
+                <button className="rounded-lg px-2  bg-primary pr-2 mr-2">
+                  Chat
+                </button>
+                <button className="rounded-lg bg-red px-2">Delete</button>
+              </td>
             </tr>
           </tbody>
         </table>

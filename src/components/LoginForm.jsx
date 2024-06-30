@@ -30,7 +30,6 @@ const LoginForm = () => {
       }
       setLoading(false);
       setFormData({
-        role: "",
         username: "",
         password: "",
       });
@@ -41,25 +40,7 @@ const LoginForm = () => {
     <div className="flex justify-center items-center h-screen bg-primary">
       <div className="bg-white p-8 rounded shadow-md w-80">
         <h2 className="text-2xl font-bold mb-6 text-center">Login Form</h2>
-        <div className="mb-4">
-          <label
-            htmlFor="role"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
-            Login as
-          </label>
-          <select
-            id="role"
-            name="role"
-            className="block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-            value={formData.role}
-            onChange={handleChange}
-          >
-            <option value="">Select an option</option>
-            <option value="patient">Patient</option>
-            <option value="doctor">Doctor</option>
-          </select>
-        </div>
+        
         <div className="mb-4">
           <label
             htmlFor="username"
@@ -116,7 +97,7 @@ const LoginForm = () => {
         <div className="mt-4 text-center text-sm">
           <p className="text-gray-600">
             Not registered?{" "}
-            <Link href="" className="text-indigo-600 hover:underline">
+            <Link to="/signup" className="text-indigo-600 hover:underline">
               Register here
             </Link>
           </p>

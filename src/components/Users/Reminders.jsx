@@ -17,9 +17,9 @@ const UserReminders = () => {
         </li>
       </ul>
 
-      <div className="flex flex-col items-start  overflow-x-auto">
+      <div className="flex-1 flex flex-col items-start  overflow-x-auto text-white ">
         <h2 className="font-bold text-2xl px-4 pb-6">Reminders</h2>
-        <table className="table-auto min-w-full  border-separate border-spacing-x-2">
+        <table className="table-auto min-w-full  border-separate ">
           <thead>
             <tr className="bg-[#2D2B7C]">
               <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider mx-2">

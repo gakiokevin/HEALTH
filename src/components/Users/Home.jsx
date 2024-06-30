@@ -8,10 +8,10 @@ import Sidebar from "../Doctors/Sidebar";
 const UserHome = () => {
   
   return (
-    <div className="bg-[#0f0f3e] w-[vw]">
+    <div className="bg-gray w-[vw]">
     <Header/>
     <Sidebar/>
-      <div className="w-full bg-[#0f0f3e]  flex  pt-10 text-white  justify-center min-h-screen border-b-2 border-b-white pb-4">
+      <div className="w-full   flex   justify-center min-h-screen border-b-2 border-b-white  ">
         <Outlet />
       </div>
       <Footer/>

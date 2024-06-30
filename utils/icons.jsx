@@ -20,5 +20,6 @@ const icons = {
    search:<FontAwesomeIcon icon={faSearch}/>,
    close:<FontAwesomeIcon icon={faTimes}/>,
    home:<FontAwesomeIcon icon={faHome}/>,
+   
 }
 export default icons
